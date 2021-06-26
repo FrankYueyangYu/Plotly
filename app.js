@@ -1,6 +1,6 @@
  function charts(sample){   
     
-  d3.json("../../samples.json").then((data) => {
+  d3.json("samples.json").then((data) => {
     var result = data.samples.filter(x => x.id.toString() === sample)[0];
     var id = result.otu_ids;
     var label = result.otu_labels;
@@ -58,7 +58,7 @@ function optionChanged(sample){
 function init(){
     var dropdown = d3.select("#selDataset");
 
-    d3.json("../../samples.json").then((data)=> { 
+    d3.json("samples.json").then((data)=> { 
         data.names.forEach((sample)=>{
             dropdown.append("option").text(sample).property("value",sample);
         });
